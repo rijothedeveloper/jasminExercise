@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
-
+//let values = {};
 function getCurrentUIValues() {
   return {
     amount: +(document.getElementById("loan-amount").value),
@@ -21,7 +21,7 @@ function getCurrentUIValues() {
 // Put some default values in the inputs
 // Call a function to calculate the current monthly payment
 function setupIntialValues() {
-
+  //values = getCurrentUIValues();
 }
 
 // Get the current values from the UI
@@ -41,7 +41,7 @@ function calculateMonthlyPayment(values) {
   const r = (values.rate / 10)/12;
   const n = values.years * 12;
   const pay =  a / (((Math.pow((1+r),n) - 1)) / (Math.pow((1+r),n) * r));
-  return pay;
+  return parseInt(pay.toFixed(2));
 }
 
 // Given a string representing the monthly payment value,
