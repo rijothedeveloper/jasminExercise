@@ -36,7 +36,9 @@ function update() {
 // calculate the monthly payment.  The output should be a string
 // that always has 2 decimal places.
 function calculateMonthlyPayment(values) {
-  // return (values.amount * (values.rate / 12)) / (1 - Math.pow( (1 + (values.rate / 12)), (values.years * -1) ));
+  if(isNaN(parseInt(values.amount)) && isNaN(parseInt(values.year)) && isNaN(parseInt(values.rate))) {
+    throw new Error('Parameters are not a number!')//'Parameters are not a number!';
+  }
   const a = values.amount;
   const r = (values.rate / 10)/12;
   const n = values.years * 12;

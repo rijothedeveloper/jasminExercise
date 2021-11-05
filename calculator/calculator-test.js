@@ -19,6 +19,10 @@ it("should return a result with 2 decimal places", function() {
   expect(calculateMonthlyPayment(values)).toEqual(135.00);
 });
 
+it("should throw error for wrong input", function () {
+  expect( () => calculateMonthlyPayment("values")).toThrowError('Parameters are not a number!');
+});
+
 afterAll( () => {
   values = {};
 })
